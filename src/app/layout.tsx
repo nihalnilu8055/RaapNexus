@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#FFFFFF",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://raapnexus.com"),
@@ -10,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | RaapNexus",
   },
   description:
-    "Discover RaapNexus, a financial platform focused on tax auditing, financial auditing, financial analysis, and business analysis.",
+    "RaapNexus is the ultimate financial platform focused on tax auditing, financial auditing, financial analysis, and business analysis.",
   keywords: [
     "Financial Platform",
     "Tax Auditing",
@@ -41,7 +47,7 @@ export const metadata: Metadata = {
       "Financial Clarity. Intelligent Decisions. The financial platform focused on tax auditing, financial auditing, financial analysis, and business analysis.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&h=630&q=80",
+        url: "https://raapnexus.com/images/raapnexus-logo.png",
         width: 1200,
         height: 630,
         alt: "RaapNexus — The Ultimate Finance Platform",
@@ -53,7 +59,7 @@ export const metadata: Metadata = {
     title: "RaapNexus | The Ultimate Finance Platform",
     description: "Financial Clarity. Intelligent Decisions.",
     images: [
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&h=630&q=80",
+      "https://raapnexus.com/images/raapnexus-logo.png",
     ],
   },
   icons: {
@@ -89,10 +95,10 @@ export default function RootLayout({
         url: "https://raapnexus.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://raapnexus.com/logo.svg",
+          url: "https://raapnexus.com/images/raapnexus-logo.png",
         },
         description:
-          "Enterprise software platform connecting ERP and business systems with conversational AI assistants.",
+          "The Ultimate Finance Platform. Financial Clarity. Intelligent Decisions.",
       },
       {
         "@type": "WebSite",
@@ -105,38 +111,38 @@ export default function RootLayout({
       },
       {
         "@type": "SoftwareApplication",
-        name: "RaapNexus Enterprise Platform",
+        name: "RaapNexus Platform",
         operatingSystem: "Cloud / Hybrid Enterprise",
-        applicationCategory: "BusinessApplication",
+        applicationCategory: "FinanceApplication",
         offers: {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
-          description: "Enterprise Demo and Deployment",
+          description: "Enterprise Financial Platform Consultation",
         },
         featureList: [
-          "Conversational ERP Interface",
-          "Natural Language Querying",
-          "Automated Trial Balance and Sales Reports",
-          "Model Context Protocol (MCP) Support",
-          "Controlled Action Preparation with Human-in-the-Loop Sign-off",
-          "Zero-Direct-Database-Write Security Architecture",
+          "Tax Auditing & Tax Intelligence",
+          "Financial Auditing & Discrepancy Detection",
+          "Financial Analysis & Multidimensional Modeling",
+          "Business Analysis & Operational Variance Tracking",
+          "Zero Direct Database Writes Architecture",
+          "Cryptographic Tenant & Entity Isolation",
         ],
       },
     ],
   };
 
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#07111F] text-white antialiased selection:bg-[#42D9F5]/20 selection:text-[#42D9F5]">
+      <body className="min-h-screen w-full overflow-x-hidden bg-white text-[#0F172A] antialiased selection:bg-[#0284C7]/15 selection:text-[#0284C7]">
         <Navbar />
-        <main className="min-h-screen flex flex-col">{children}</main>
+        <main className="min-h-screen flex flex-col w-full overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

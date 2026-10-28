@@ -5,16 +5,12 @@ import {
   ShieldCheck,
   Lock,
   UserCheck,
-  FileCheck2,
   Database,
   ArrowRight,
-  Server,
   Layers,
   KeyRound,
   Eye,
   CheckCircle2,
-  AlertTriangle,
-  Bot,
   Cpu,
   Check,
   HelpCircle,
@@ -104,29 +100,29 @@ export default function SecurityPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 bg-[#07111F] min-h-screen text-white">
+    <div className="pt-28 pb-20 bg-white min-h-screen text-[#0F172A]">
       {/* Header */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-16 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101F35] border border-[#1E314B] text-xs font-semibold uppercase tracking-wider text-[#42D9F5]">
-          <ShieldCheck className="w-3.5 h-3.5" />
+      <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-16 text-center space-y-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold uppercase tracking-wider text-[#0284C7]">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#0284C7]" />
           <span>Institutional Trust & Governance</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight text-[#0F172A]">
           Security architecture designed for{" "}
-          <span className="gradient-text-cyan-violet block mt-1">
+          <span className="gradient-accent block mt-1">
             mission-critical ERP data.
           </span>
         </h1>
 
-        <p className="text-base sm:text-xl text-[#8E9EBA] max-w-2xl mx-auto">
+        <p className="text-base sm:text-xl text-[#475569] max-w-2xl mx-auto font-normal leading-relaxed">
           We treat enterprise ERP systems as sovereign environments. Learn how RaapNexus protects data sovereignty, guarantees tenant boundaries, and enforces dual human authorization.
         </p>
 
         <div className="pt-4 flex justify-center gap-4">
           <Link
             href="/contact"
-            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#42D9F5] to-[#9B8CFF] text-[#07111F] font-bold text-sm shadow-xl shadow-[#42D9F5]/20 hover:scale-[1.02] transition-all"
+            className="px-8 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold text-sm shadow-md transition-all"
           >
             Request Security Packet & SOC2 Summary
           </Link>
@@ -134,58 +130,58 @@ export default function SecurityPage() {
       </section>
 
       {/* Security Architecture Pipeline Visual */}
-      <section className="py-16 bg-[#050C16] border-y border-[#1E314B]/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-[#F8FAFC] border-y border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#42D9F5] font-bold">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#0284C7] font-bold">
               Defensive Topology
             </span>
-            <h2 className="text-3xl font-extrabold text-white">
+            <h2 className="text-3xl font-extrabold text-[#0F172A]">
               The Sovereign Data Gateway
             </h2>
-            <p className="text-xs sm:text-sm text-[#8E9EBA]">
+            <p className="text-xs sm:text-sm text-[#475569]">
               Under no circumstances do third-party AI models interface directly with your core database.
             </p>
           </div>
 
           {/* Architecture Block Diagram */}
-          <div className="rounded-2xl bg-[#0B1728] border border-[#1E314B] p-6 lg:p-8 space-y-6 shadow-2xl">
+          <div className="rounded-2xl bg-white border border-slate-200 p-6 lg:p-8 space-y-6 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="bg-[#07111F] p-4 rounded-xl border border-[#1E314B] space-y-2">
-                <span className="text-[10px] font-mono text-[#42D9F5] uppercase">Perimeter</span>
-                <h4 className="text-sm font-bold text-white">1. Client / MCP Session</h4>
-                <p className="text-xs text-[#8E9EBA]">
+              <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200 space-y-2">
+                <span className="text-[10px] font-mono text-[#0284C7] uppercase font-semibold">1. Perimeter</span>
+                <h4 className="text-sm font-bold text-[#0F172A]">Client / MCP Session</h4>
+                <p className="text-xs text-slate-500">
                   TLS 1.3 encrypted channel with federated SAML/OIDC user identity token.
                 </p>
               </div>
 
-              <div className="bg-[#07111F] p-4 rounded-xl border border-[#42D9F5]/40 space-y-2">
-                <span className="text-[10px] font-mono text-[#42D9F5] uppercase">Validation Gateway</span>
-                <h4 className="text-sm font-bold text-white">2. RaapNexus Enforcer</h4>
-                <p className="text-xs text-[#8E9EBA]">
+              <div className="bg-[#F8FAFC] p-4 rounded-xl border border-[#0284C7]/40 space-y-2">
+                <span className="text-[10px] font-mono text-[#0284C7] uppercase font-semibold">2. Validation</span>
+                <h4 className="text-sm font-bold text-[#0F172A]">RaapNexus Enforcer</h4>
+                <p className="text-xs text-slate-500">
                   Tenant isolation verification, entity mapping, and business rule checking.
                 </p>
               </div>
 
-              <div className="bg-[#07111F] p-4 rounded-xl border border-[#9B8CFF]/40 space-y-2">
-                <span className="text-[10px] font-mono text-[#9B8CFF] uppercase">Staging Queue</span>
-                <h4 className="text-sm font-bold text-white">3. Dual Control Buffer</h4>
-                <p className="text-xs text-[#8E9EBA]">
-                  Actions (invoices, POs) await explicit sign-off. Zero autonomous writes.
+              <div className="bg-[#F8FAFC] p-4 rounded-xl border border-indigo-200 space-y-2">
+                <span className="text-[10px] font-mono text-indigo-600 uppercase font-semibold">3. Staging</span>
+                <h4 className="text-sm font-bold text-[#0F172A]">Dual Control Buffer</h4>
+                <p className="text-xs text-slate-500">
+                  Actions await explicit human sign-off. Zero autonomous writes.
                 </p>
               </div>
 
-              <div className="bg-[#07111F] p-4 rounded-xl border border-[#1E314B] space-y-2">
-                <span className="text-[10px] font-mono text-emerald-400 uppercase">Core Record</span>
-                <h4 className="text-sm font-bold text-white">4. ERP Business Services</h4>
-                <p className="text-xs text-[#8E9EBA]">
+              <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200 space-y-2">
+                <span className="text-[10px] font-mono text-emerald-600 uppercase font-semibold">4. Core Record</span>
+                <h4 className="text-sm font-bold text-[#0F172A]">ERP Business Services</h4>
+                <p className="text-xs text-slate-500">
                   Standard ERP APIs enforce local transaction consistency and ledger posting.
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#07111F] border border-emerald-500/30 flex items-center gap-3 text-xs text-white">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 text-xs text-emerald-800">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
               <span>
                 <strong>Data Minimization Guarantee:</strong> Prompts and business metrics are evaluated statelessly in volatile memory and are never persisted or utilized for public LLM training.
               </span>
@@ -194,16 +190,16 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* Security Controls Table / Grid */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Security Controls Grid */}
+      <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#42D9F5] font-bold">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#0284C7] font-bold">
             Verified Defense Matrix
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
             Implemented controls & roadmap transparency
           </h2>
-          <p className="text-sm sm:text-base text-[#8E9EBA]">
+          <p className="text-sm sm:text-base text-[#475569]">
             We clearly distinguish our operational controls from upcoming roadmap features so compliance teams can make informed risk assessments.
           </p>
         </div>
@@ -215,32 +211,32 @@ export default function SecurityPage() {
             return (
               <div
                 key={idx}
-                className="bg-[#0B1728] border border-[#1E314B] rounded-2xl p-6 space-y-3 hover:border-[#42D9F5]/40 transition-colors shadow-lg flex flex-col justify-between"
+                className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 hover:border-[#0284C7]/50 transition-colors shadow-sm flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#101F35] border border-[#1E314B] flex items-center justify-center text-[#42D9F5]">
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0284C7]">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span
                       className={`text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded-full ${
                         isImplemented
-                          ? "bg-emerald-950/80 text-emerald-400 border border-emerald-500/30"
-                          : "bg-blue-950/80 text-blue-400 border border-blue-500/30"
+                          ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                          : "bg-sky-50 text-sky-700 border border-sky-200"
                       }`}
                     >
                       {ctrl.status}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white">{ctrl.title}</h3>
-                  <p className="text-xs sm:text-sm text-[#8E9EBA] leading-relaxed">
+                  <h3 className="text-base font-bold text-[#0F172A]">{ctrl.title}</h3>
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {ctrl.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#1E314B]/60 flex items-center gap-1.5 text-[11px] text-[#8E9EBA]">
-                  <Check className="w-3.5 h-3.5 text-[#42D9F5]" />
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-500">
+                  <Check className="w-3.5 h-3.5 text-[#0284C7]" />
                   <span>Verified in Production Architectures</span>
                 </div>
               </div>
@@ -250,13 +246,13 @@ export default function SecurityPage() {
       </section>
 
       {/* Security FAQs */}
-      <section className="py-16 bg-[#050C16] border-t border-[#1E314B]/70">
+      <section className="py-16 bg-[#F8FAFC] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center space-y-2">
-            <span className="text-xs font-mono uppercase text-[#42D9F5] font-bold">
+            <span className="text-xs font-mono uppercase text-[#0284C7] font-bold">
               Compliance Q&A
             </span>
-            <h2 className="text-3xl font-extrabold text-white">
+            <h2 className="text-3xl font-extrabold text-[#0F172A]">
               Frequently asked security questions
             </h2>
           </div>
@@ -265,13 +261,13 @@ export default function SecurityPage() {
             {securityFaqs.map((faq, i) => (
               <div
                 key={i}
-                className="bg-[#0B1728] border border-[#1E314B] rounded-2xl p-6 space-y-2 shadow-lg"
+                className="bg-white border border-slate-200 rounded-2xl p-6 space-y-2 shadow-sm"
               >
-                <h4 className="text-base font-bold text-white flex items-center gap-2">
-                  <HelpCircle className="w-4 h-4 text-[#42D9F5] shrink-0" />
+                <h4 className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+                  <HelpCircle className="w-4 h-4 text-[#0284C7] shrink-0" />
                   <span>{faq.q}</span>
                 </h4>
-                <p className="text-xs sm:text-sm text-[#8E9EBA] leading-relaxed pl-6">
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-6">
                   {faq.a}
                 </p>
               </div>
@@ -281,18 +277,18 @@ export default function SecurityPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 text-center">
+      <section className="py-20 text-center bg-white">
         <div className="max-w-3xl mx-auto px-4 space-y-6">
-          <h2 className="text-3xl font-extrabold text-white">
+          <h2 className="text-3xl font-extrabold text-[#0F172A]">
             Schedule a confidential IT security briefing
           </h2>
-          <p className="text-sm text-[#8E9EBA]">
+          <p className="text-sm text-[#475569]">
             Our security architects can join your team to review network topology, VPC peering, and enterprise compliance requirements.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#42D9F5] to-[#9B8CFF] text-[#07111F] font-bold text-sm shadow-xl shadow-[#42D9F5]/25 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold text-sm shadow-md transition-all"
             >
               <span>Schedule Technical Security Review</span>
               <ArrowRight className="w-4 h-4" />

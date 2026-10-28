@@ -5,10 +5,7 @@ import {
   ShieldCheck,
   Scale,
   Receipt,
-  LineChart,
-  TrendingUp,
   ArrowRight,
-  CheckCircle2,
   Lock,
 } from "lucide-react";
 
@@ -43,53 +40,51 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 bg-[#05080E] min-h-screen text-[#FBF9F5]">
+    <div className="pt-28 pb-20 bg-white min-h-screen text-[#0F172A]">
       {/* Hero */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-16 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1726] border border-[#D4AF37]/30 text-xs font-semibold uppercase tracking-[0.2em] text-[#E5C378]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold uppercase tracking-[0.2em] text-[#0284C7]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />
           <span>Our Mission & Principles</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.12]">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.12] text-[#0F172A]">
           Built for clarity.{" "}
-          <span className="gradient-text-gold block mt-1">
+          <span className="gradient-accent block mt-1">
             Engineered for control.
           </span>
         </h1>
 
-        <p className="text-base sm:text-xl text-[#C8CED8] max-w-2xl mx-auto font-normal leading-relaxed">
+        <p className="text-base sm:text-xl text-[#475569] max-w-2xl mx-auto font-normal leading-relaxed">
           RaapNexus was founded to address a critical enterprise challenge: modern businesses have vast ERP ledgers and transaction records, but lack a unified, auditable layer to interpret them with confidence.
         </p>
       </section>
 
       {/* Core Mission Narrative */}
-      <section className="py-16 border-t border-b border-[#D4AF37]/15 bg-[#070B12]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FBF9F5]">
-              Redefining financial intelligence for the modern enterprise.
-            </h2>
-            <p className="text-sm sm:text-base text-[#C8CED8] leading-relaxed">
-              In an era of multi-subsidiary expansion and complex regulatory oversight, financial leadership cannot afford fragmented spreadsheets, delayed reporting cycles, or unaudited automated systems.
-            </p>
-            <p className="text-sm sm:text-base text-[#C8CED8] leading-relaxed">
-              RaapNexus unifies <strong>Tax Auditing</strong>, <strong>Financial Auditing</strong>, <strong>Financial Analysis</strong>, and <strong>Business Analysis</strong> into a coherent, secure platform. We empower CFOs, finance directors, tax advisors, and executives to examine transactions, detect variances, and model performance with complete institutional confidence.
-            </p>
-          </div>
+      <section className="py-16 border-t border-b border-slate-200/80 bg-[#F8FAFC]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
+            Redefining financial intelligence for the modern enterprise.
+          </h2>
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+            In an era of multi-subsidiary expansion and complex regulatory oversight, financial leadership cannot afford fragmented spreadsheets, delayed reporting cycles, or unaudited automated systems.
+          </p>
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+            RaapNexus unifies <strong>Tax Auditing</strong>, <strong>Financial Auditing</strong>, <strong>Financial Analysis</strong>, and <strong>Business Analysis</strong> into a coherent, secure platform. We empower CFOs, finance directors, tax advisors, and executives to examine transactions, detect variances, and model performance with complete institutional confidence.
+          </p>
         </div>
       </section>
 
       {/* 4 Guiding Principles */}
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A880] font-semibold">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#0284C7] font-semibold">
             Institutional Standards
           </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#FBF9F5]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
             Our architectural convictions.
           </h2>
-          <p className="text-sm sm:text-base text-[#7E8B9E]">
+          <p className="text-sm sm:text-base text-[#475569]">
             Four uncompromised standards that guide every line of code and financial model in RaapNexus.
           </p>
         </div>
@@ -100,13 +95,13 @@ export default function AboutPage() {
             return (
               <div
                 key={idx}
-                className="p-6 sm:p-8 rounded-2xl bg-[#0B111D] border border-[#D4AF37]/20 space-y-3 shadow-xl hover:border-[#D4AF37]/50 transition-all"
+                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 space-y-3 shadow-sm hover:border-[#0284C7]/50 transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#05080E] border border-[#D4AF37]/30 flex items-center justify-center text-[#E5C378]">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0284C7]">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-[#FBF9F5]">{p.title}</h3>
-                <p className="text-xs sm:text-sm text-[#7E8B9E] leading-relaxed">
+                <h3 className="text-lg font-bold text-[#0F172A]">{p.title}</h3>
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   {p.desc}
                 </p>
               </div>
@@ -116,21 +111,21 @@ export default function AboutPage() {
       </section>
 
       {/* Engagement CTA */}
-      <section className="py-16 bg-[#070B12] border-t border-[#D4AF37]/15 text-center">
+      <section className="py-16 bg-[#F8FAFC] border-t border-slate-200 text-center">
         <div className="max-w-2xl mx-auto px-4 space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FBF9F5]">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
             Consult with our financial advisory team.
           </h2>
-          <p className="text-sm text-[#C8CED8]">
+          <p className="text-sm text-[#475569]">
             Discuss your enterprise architecture, audit workflows, and tax compliance requirements with our senior solution partners.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C5A880] text-[#05080E] font-bold text-sm shadow-xl shadow-[#D4AF37]/20 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold text-sm shadow-md transition-all"
             >
               <span>Schedule Architecture Advisory</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <ArrowRight className="w-4 h-4 stroke-[2.2]" />
             </Link>
           </div>
         </div>

@@ -59,34 +59,34 @@ export const EmblemExperience: React.FC = () => {
           </p>
         </div>
 
-        {/* Central Emblem Experience & Layer Diagram */}
-        <div className="rounded-3xl bg-[#0B111D] border border-[#D4AF37]/20 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        {/* Central Architecture & Integrity Layer Diagram */}
+        <div className="rounded-3xl bg-[#0B111D] border border-white/[0.08] hover:border-[#00C4FF]/30 transition-colors p-6 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left: Architectural Emblem Core */}
+            {/* Left: Architectural Protocol Node with Controlled Emblem */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center text-center space-y-5">
-              <div className="relative w-44 h-44 sm:w-56 sm:h-56 flex items-center justify-center select-none group">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00C4FF]/20 via-[#38BDF8]/10 to-transparent blur-2xl pointer-events-none" />
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 flex items-center justify-center select-none group">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00C4FF]/15 via-[#38BDF8]/10 to-transparent blur-2xl pointer-events-none" />
                 
                 {/* Concentric Precision Rings */}
-                <div className="absolute inset-2 rounded-full border border-[#00C4FF]/20 pointer-events-none" />
-                <div className="absolute inset-6 rounded-full border border-dashed border-[#00C4FF]/25 pointer-events-none animate-[spin_60s_linear_infinite]" />
-                <div className="absolute inset-10 rounded-full border border-white/10 pointer-events-none" />
+                <div className="absolute inset-1 rounded-full border border-[#00C4FF]/20 pointer-events-none" />
+                <div className="absolute inset-4 rounded-full border border-dashed border-[#00C4FF]/25 pointer-events-none animate-[spin_60s_linear_infinite]" />
+                <div className="absolute inset-8 rounded-full border border-white/10 pointer-events-none" />
 
-                {/* Official 3D Emblem Mark */}
+                {/* Controlled 3D Emblem Mark */}
                 <img
                   src="/images/raapnexus-mark.png"
-                  alt="Nexus Financial Core Emblem"
-                  className="w-24 h-24 sm:w-32 sm:h-32 object-contain relative z-10 transform transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_8px_24px_rgba(0,196,255,0.4)]"
+                  alt="Nexus Financial Core Protocol"
+                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain relative z-10 transform transition-transform duration-500 ease-out group-hover:scale-105 filter drop-shadow-[0_4px_16px_rgba(0,196,255,0.4)]"
                   loading="lazy"
                 />
               </div>
 
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 <span className="text-xs font-mono font-bold tracking-widest text-[#00C4FF] uppercase">
                   Nexus Intelligence Core
                 </span>
-                <p className="text-xs text-[#7E8B9E] max-w-xs">
-                  Deterministic transaction gate separating executive intelligence from core ERP tables.
+                <p className="text-xs text-[#7E8B9E] max-w-xs leading-relaxed">
+                  Deterministic transaction gate separating executive intelligence and analytical models from core ERP tables.
                 </p>
               </div>
             </div>

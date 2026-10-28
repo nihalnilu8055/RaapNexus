@@ -101,31 +101,31 @@ export const IntroAndEcosystem: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
         {/* Section 2: Financial Platform Introduction */}
         <div className="max-w-3xl mx-auto space-y-3">
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A880] font-semibold">
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#00C4FF] font-semibold">
             Financial Platform Architecture
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FBF9F5] tracking-tight leading-tight">
             See your finances with{" "}
-            <span className="gradient-text-gold">greater clarity.</span>
+            <span className="gradient-text-nexus">greater clarity.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#C8CED8] font-normal leading-relaxed pt-1">
-            RaapNexus brings financial auditing, tax intelligence, and business analysis into a more connected view of your business.
+            RaapNexus brings financial auditing, tax intelligence, and business analysis into a more connected view of your enterprise.
           </p>
         </div>
 
-        {/* Hairline Divider with Central Gold Node */}
+        {/* Hairline Divider with Central Cyan Node */}
         <div className="relative py-4 flex items-center justify-center max-w-xl mx-auto">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
-          <div className="absolute w-2 h-2 rounded-full bg-[#D4AF37] ring-4 ring-[#070B12]" />
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#00C4FF]/30 to-transparent" />
+          <div className="absolute w-2 h-2 rounded-full bg-[#00C4FF] ring-4 ring-[#070B12]" />
         </div>
 
-        {/* Section 7: Ecosystem Header */}
+        {/* Section 5: Compatible Systems Header */}
         <div className="space-y-1 pt-2">
           <h3 className="text-lg sm:text-xl font-bold text-[#FBF9F5]">
-            Designed to fit your financial workflow.
+            Compatible Financial Systems & Standards
           </h3>
           <p className="text-xs sm:text-sm text-[#7E8B9E] max-w-lg mx-auto">
-            Explore the tools and systems that connect with your workflow through authoritative application services.
+            Interfaces with enterprise ledgers, subledgers, and secure protocol endpoints through authoritative application services.
           </p>
         </div>
       </div>
@@ -163,7 +163,7 @@ export const IntroAndEcosystem: React.FC = () => {
       {/* Reassurance Micro-Label */}
       <div className="max-w-6xl mx-auto px-4 mt-6 text-center">
         <p className="text-[11px] text-[#7E8B9E]">
-          Connected platforms reflect supported enterprise integration interfaces. Integrations interface through authorized API services without direct database writes.
+          Supported enterprise integration interfaces. Integrations interface through authorized API services without direct database writes. All product names and trademarks are property of their respective owners.
         </p>
       </div>
     </section>

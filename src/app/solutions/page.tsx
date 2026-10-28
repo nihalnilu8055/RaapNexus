@@ -8,8 +8,6 @@ import {
   TrendingUp,
   ArrowRight,
   CheckCircle2,
-  ShieldCheck,
-  FileSpreadsheet,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -42,7 +40,6 @@ export default function SolutionsPage() {
         "Audit-stamped documentation support for external advisory teams",
       ],
       icon: Receipt,
-      accent: "#D4AF37",
     },
     {
       id: "financial-auditing",
@@ -66,7 +63,6 @@ export default function SolutionsPage() {
         "Direct drill-through from high-level trial balances to source vouchers",
       ],
       icon: Scale,
-      accent: "#E5C378",
     },
     {
       id: "financial-analysis",
@@ -90,7 +86,6 @@ export default function SolutionsPage() {
         "Instant export to formula-rich audit workbooks (.xlsx)",
       ],
       icon: LineChart,
-      accent: "#C5A880",
     },
     {
       id: "business-analysis",
@@ -114,34 +109,33 @@ export default function SolutionsPage() {
         "Unified view of key business indicators across all operating entities",
       ],
       icon: TrendingUp,
-      accent: "#9E825A",
     },
   ];
 
   return (
-    <div className="pt-28 pb-20 bg-[#05080E] min-h-screen text-[#FBF9F5]">
+    <div className="pt-28 pb-20 bg-white min-h-screen text-[#0F172A]">
       {/* Header */}
       <section className="relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-16 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1726] border border-[#D4AF37]/30 text-xs font-semibold uppercase tracking-[0.2em] text-[#E5C378]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-semibold uppercase tracking-[0.2em] text-[#0284C7]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7]" />
           <span>Institutional Solutions</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.12]">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.12] text-[#0F172A]">
           Four pillars of{" "}
-          <span className="gradient-text-gold block mt-1">
+          <span className="gradient-accent block mt-1">
             financial intelligence.
           </span>
         </h1>
 
-        <p className="text-base sm:text-xl text-[#C8CED8] max-w-2xl mx-auto font-normal leading-relaxed">
+        <p className="text-base sm:text-xl text-[#475569] max-w-2xl mx-auto font-normal leading-relaxed">
           Purpose-built solutions designed to help modern enterprises audit, analyze, and optimize every dimension of financial performance.
         </p>
       </section>
 
       {/* Solutions Detail */}
-      <section className="py-12 border-t border-[#D4AF37]/15">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      <section className="py-12 border-t border-slate-200/80 bg-[#F8FAFC]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {solutions.map((sol, idx) => {
             const Icon = sol.icon;
             const isReversed = idx % 2 === 1;
@@ -150,7 +144,7 @@ export default function SolutionsPage() {
               <div
                 key={sol.id}
                 id={sol.id}
-                className="scroll-mt-32 rounded-3xl bg-[#0B111D] border border-white/[0.06] p-6 sm:p-10 shadow-2xl relative overflow-hidden"
+                className="scroll-mt-32 rounded-3xl bg-white border border-slate-200 p-6 sm:p-10 shadow-sm relative overflow-hidden"
               >
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${
@@ -160,44 +154,41 @@ export default function SolutionsPage() {
                   {/* Left Column: Solution Narrative */}
                   <div className="lg:col-span-7 space-y-5">
                     <div className="flex items-center gap-2">
-                      <div
-                        className="w-9 h-9 rounded-xl bg-[#05080E] border border-white/[0.08] flex items-center justify-center shrink-0"
-                        style={{ color: sol.accent }}
-                      >
+                      <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0284C7] shrink-0">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#E5C378]">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0284C7]">
                         {sol.eyebrow}
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FBF9F5]">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">
                       {sol.title}
                     </h2>
 
-                    <p className="text-sm sm:text-base font-semibold text-[#C5A880]">
+                    <p className="text-sm sm:text-base font-semibold text-slate-700">
                       {sol.headline}
                     </p>
 
-                    <div className="space-y-3 text-xs sm:text-sm text-[#7E8B9E] leading-relaxed">
+                    <div className="space-y-3 text-xs sm:text-sm text-[#475569] leading-relaxed">
                       <p>
-                        <strong className="text-[#C8CED8] font-semibold">The Challenge: </strong>
+                        <strong className="text-slate-900 font-semibold">The Challenge: </strong>
                         {sol.challenge}
                       </p>
                       <p>
-                        <strong className="text-[#C8CED8] font-semibold">The RaapNexus Approach: </strong>
+                        <strong className="text-slate-900 font-semibold">The RaapNexus Approach: </strong>
                         {sol.solution}
                       </p>
                     </div>
 
                     <div className="pt-2 space-y-2">
-                      <span className="text-xs font-mono uppercase font-bold text-[#FBF9F5] block">
+                      <span className="text-xs font-mono uppercase font-bold text-slate-800 block">
                         Verified Institutional Benefits:
                       </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#C8CED8]">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
                         {sol.benefits.map((b, i) => (
                           <div key={i} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0284C7] shrink-0 mt-0.5" />
                             <span>{b}</span>
                           </div>
                         ))}
@@ -206,8 +197,8 @@ export default function SolutionsPage() {
                   </div>
 
                   {/* Right Column: Typical Analytical Queries */}
-                  <div className="lg:col-span-5 bg-[#070B12] rounded-2xl border border-white/[0.06] p-5 sm:p-6 space-y-4">
-                    <span className="text-xs font-mono uppercase text-[#E5C378] font-bold block border-b border-white/[0.06] pb-2">
+                  <div className="lg:col-span-5 bg-slate-50 rounded-2xl border border-slate-200 p-5 sm:p-6 space-y-4">
+                    <span className="text-xs font-mono uppercase text-slate-700 font-bold block border-b border-slate-200 pb-2">
                       Representative Analytical Inquiries
                     </span>
 
@@ -215,16 +206,16 @@ export default function SolutionsPage() {
                       {sol.exampleQuestions.map((q, i) => (
                         <div
                           key={i}
-                          className="bg-[#0B111D] p-3 rounded-xl border border-white/[0.04] text-xs text-[#FBF9F5] italic font-sans"
+                          className="bg-white p-3 rounded-xl border border-slate-200/80 text-xs text-slate-800 italic font-sans"
                         >
                           {q}
                         </div>
                       ))}
                     </div>
 
-                    <div className="pt-2 text-[11px] text-[#7E8B9E] font-mono flex items-center justify-between">
-                      <span>Audit Trail: Cryptographically Logged</span>
-                      <span className="text-[#E5C378]">Zero DB Writes</span>
+                    <div className="pt-2 text-[11px] text-slate-500 font-mono flex items-center justify-between border-t border-slate-200">
+                      <span>Audit Trail: Logged</span>
+                      <span className="text-[#0284C7] font-semibold">Zero DB Writes</span>
                     </div>
                   </div>
                 </div>
@@ -235,21 +226,21 @@ export default function SolutionsPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="py-20 bg-[#070B12] border-t border-[#D4AF37]/15 text-center">
+      <section className="py-20 bg-white border-t border-slate-200 text-center">
         <div className="max-w-2xl mx-auto px-4 space-y-6">
-          <h2 className="text-3xl font-extrabold text-[#FBF9F5]">
+          <h2 className="text-3xl font-extrabold text-[#0F172A]">
             Transform your financial intelligence.
           </h2>
-          <p className="text-sm text-[#C8CED8]">
+          <p className="text-sm text-[#475569]">
             Schedule a confidential consultation with our financial advisory team to evaluate RaapNexus for your enterprise.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#C5A880] text-[#05080E] font-bold text-sm shadow-xl shadow-[#D4AF37]/20 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold text-sm shadow-md transition-all"
             >
               <span>Schedule Financial Consultation</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <ArrowRight className="w-4 h-4 stroke-[2.2]" />
             </Link>
           </div>
         </div>
