@@ -1,24 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import {
   MessageSquareCode,
   FileSpreadsheet,
-  Network,
-  ShieldAlert,
+  ShieldCheck,
   Server,
   ArrowRight,
   CheckCircle2,
   Sparkles,
-  Search,
-  Database,
-  Lock,
-  Cpu,
+  BarChart2,
   Layers,
-  ChevronRight,
-  Building2,
-  FileCheck,
+  Lock,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -27,27 +20,29 @@ export const CoreCapabilities: React.FC = () => {
 
   const capabilities = [
     {
-      id: "conversational-intelligence",
+      id: "conversational-bi",
       step: "01",
-      title: "Conversational Intelligence",
+      title: "Conversational Business Intelligence",
       tagline: "Natural dialogue for complex enterprise systems",
+      benefit: "Ask questions in plain English and get reconciled answers with automatic entity and ledger mapping.",
       description:
-        "Ask complex business questions in natural, everyday language. RaapNexus continuously preserves business context across multi-turn conversations, clarifying ambiguities before querying your underlying records.",
+        "Ask complex business questions in everyday language. RaapNexus resolves familiar customer names, branch tags, and product terms to exact ERP ledger keys and SKUs, preserving context across multi-turn conversations.",
       icon: MessageSquareCode,
       color: "from-[#42D9F5] to-cyan-200",
       accent: "#42D9F5",
       features: [
         "Multi-turn conversational context preservation",
-        "Role-aware automatic entity disambiguation",
+        "Contextual entity mapping (e.g., 'Al Noor' ➔ CUST-04921)",
         "Zero SQL, Python, or technical query knowledge needed",
       ],
       previewType: "chat",
     },
     {
-      id: "business-reporting",
+      id: "reporting-analysis",
       step: "02",
-      title: "Business Reporting",
-      tagline: "Instant, structured, Excel-ready executive reports",
+      title: "Reporting & Excel-Ready Analysis",
+      tagline: "Instant, structured, CFO-ready financial reports",
+      benefit: "Transform raw ledger entries into formatted trial balances, P&L summaries, and downloadable workbooks.",
       description:
         "Transform raw transactional ledger entries into formatted, CFO-ready reports, visual breakdown charts, and one-click downloadable Excel workbooks without waiting for BI pipeline refresh cycles.",
       icon: FileSpreadsheet,
@@ -56,35 +51,19 @@ export const CoreCapabilities: React.FC = () => {
       features: [
         "Instant trial balances, P&L summaries, and aged receivables",
         "Direct export to formula-rich .XLSX workbooks",
-        "Drill down from high-level totals into underlying journal entries",
+        "Reconciled ledger drill-down with zero discrepancy",
       ],
       previewType: "reporting",
     },
     {
-      id: "intelligent-code-mapping",
+      id: "validated-actions",
       step: "03",
-      title: "Intelligent Code Mapping",
-      tagline: "Bridging human vernacular and cryptic ERP codes",
-      description:
-        "Resolve familiar customer names, nicknames, product descriptions, branch tags, and account names to their exact ERP ledger keys and SKUs through contextual fuzzy matching and verified business logic.",
-      icon: Network,
-      color: "from-[#9B8CFF] to-indigo-300",
-      accent: "#9B8CFF",
-      features: [
-        "Resolves 'Al Noor' -> Customer ID CUST-04921",
-        "Matches 'Blade server' -> Item SKU SRV-X8-BLD",
-        "Prevents ambiguous cross-subsidiary ledger contamination",
-      ],
-      previewType: "mapping",
-    },
-    {
-      id: "controlled-business-actions",
-      step: "04",
-      title: "Controlled Business Actions",
+      title: "Validated Business Actions",
       tagline: "Pre-validated transaction workflows with human sign-off",
+      benefit: "Draft invoices, sales orders, and transfers with credit checks and mandatory human authorization.",
       description:
-        "Prepare draft commercial invoices, purchase orders, inventory transfers, and journal vouchers through verified application services, validating credit limits and tax compliance before staging for human authorization.",
-      icon: ShieldAlert,
+        "Prepare draft commercial invoices, purchase orders, inventory transfers, and journal vouchers through verified application services. Validates credit limits and tax compliance before staging for human authorization.",
+      icon: ShieldCheck,
       color: "from-amber-400 to-orange-300",
       accent: "#FBBF24",
       features: [
@@ -95,49 +74,52 @@ export const CoreCapabilities: React.FC = () => {
       previewType: "actions",
     },
     {
-      id: "enterprise-ready-integration",
-      step: "05",
-      title: "Enterprise-Ready Integration",
+      id: "integration-governance",
+      step: "04",
+      title: "Enterprise Integration & Governance",
       tagline: "Standards-based architecture built for security and audit",
+      benefit: "Connect with MCP and enterprise APIs with strict tenant isolation and tamper-evident audit trails.",
       description:
         "Connect with leading AI assistants using the open Model Context Protocol (MCP) or secure REST endpoints. Strictly isolated by tenant boundary, encrypted in transit, and recorded to an immutable audit log.",
       icon: Server,
-      color: "from-blue-400 to-[#42D9F5]",
-      accent: "#60A5FA",
+      color: "from-[#9B8CFF] to-indigo-300",
+      accent: "#9B8CFF",
       features: [
         "Native Model Context Protocol (MCP) implementation",
         "Cryptographically hashed immutable audit ledger",
-        "Strict logical tenant & multi-company partitioning",
+        "Strict tenant isolation and zero customer data model training",
       ],
       previewType: "integration",
     },
   ];
 
+  const active = capabilities[activeCapability];
+
   return (
-    <section className="py-20 sm:py-24 bg-[#07111F] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#42D9F5]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#9B8CFF]/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-16 sm:py-20 bg-[#07111F] relative overflow-hidden border-t border-[#1E314B]/70">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#42D9F5]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#9B8CFF]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101F35] border border-[#1E314B] text-xs font-semibold uppercase tracking-wider text-[#42D9F5]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Platform Pillars</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Everything starts with a question.
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Core capabilities built for enterprise control.
           </h2>
 
           <p className="text-sm sm:text-base text-[#8E9EBA]">
-            Explore the five deep engineering layers that empower RaapNexus to understand business language, safeguard company assets, and unlock ERP productivity.
+            Four core engineering pillars that empower RaapNexus to understand business language, safeguard company assets, and unlock ERP productivity.
           </p>
         </div>
 
-        {/* Feature Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 mb-8 sm:mb-10">
+        {/* 4 Feature Navigation Tabs */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
           {capabilities.map((cap, idx) => {
             const Icon = cap.icon;
             const isActive = activeCapability === idx;
@@ -145,14 +127,14 @@ export const CoreCapabilities: React.FC = () => {
               <button
                 key={cap.id}
                 onClick={() => setActiveCapability(idx)}
-                className={`p-3 sm:p-4 rounded-xl border text-left transition-all duration-200 relative overflow-hidden flex flex-col justify-between ${
+                className={`p-4 rounded-xl border text-left transition-all duration-200 relative overflow-hidden flex flex-col justify-between ${
                   isActive
                     ? "bg-[#101F35] border-[#42D9F5] shadow-lg shadow-[#42D9F5]/10"
                     : "bg-[#0B1728] border-[#1E314B] hover:border-white/20 text-[#8E9EBA] hover:text-white"
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2.5">
                     <span
                       className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                         isActive
@@ -171,6 +153,9 @@ export const CoreCapabilities: React.FC = () => {
                   <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-1">
                     {cap.title}
                   </h4>
+                  <p className="text-[11px] text-[#8E9EBA] mt-1 line-clamp-2">
+                    {cap.benefit}
+                  </p>
                 </div>
                 {isActive && (
                   <div className="w-full h-0.5 bg-gradient-to-r from-[#42D9F5] to-[#9B8CFF] absolute bottom-0 left-0" />
@@ -181,197 +166,166 @@ export const CoreCapabilities: React.FC = () => {
         </div>
 
         {/* Active Feature Showcase Box */}
-        {(() => {
-          const active = capabilities[activeCapability];
-          const Icon = active.icon;
+        <div className="rounded-2xl bg-[#0B1728] border border-[#1E314B] p-6 lg:p-8 shadow-2xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Description and Key Benefits */}
+            <div className="lg:col-span-6 space-y-5">
+              <div className="space-y-1.5">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#42D9F5]">
+                  Capability {active.step} of 04
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  {active.title}
+                </h3>
+                <p className="text-sm font-semibold text-[#9B8CFF]">
+                  {active.tagline}
+                </p>
+              </div>
 
-          return (
-            <div className="rounded-2xl bg-[#0B1728] border border-[#1E314B] p-6 lg:p-10 shadow-2xl relative overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                {/* Description and Key Benefits */}
-                <div className="lg:col-span-6 space-y-6">
-                  <div className="space-y-2">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#42D9F5]">
-                      Capability {active.step} of 05
+              <p className="text-xs sm:text-sm text-[#8E9EBA] leading-relaxed">
+                {active.description}
+              </p>
+
+              <div className="space-y-2.5 pt-1">
+                {active.features.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#42D9F5] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-white/90 font-medium">
+                      {feat}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                      {active.title}
-                    </h3>
-                    <p className="text-sm font-semibold text-[#9B8CFF]">
-                      {active.tagline}
-                    </p>
                   </div>
+                ))}
+              </div>
 
-                  <p className="text-sm sm:text-base text-[#8E9EBA] leading-relaxed">
-                    {active.description}
-                  </p>
-
-                  <div className="space-y-3 pt-2">
-                    {active.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-[#42D9F5] shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-white/90 font-medium">
-                          {feat}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-4 flex items-center gap-4">
-                    <Link
-                      href="/platform"
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#42D9F5] hover:text-white transition-colors"
-                    >
-                      <span>Deep Dive Architecture</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Unique UI Mockup for the Active Capability */}
-                <div className="lg:col-span-6">
-                  <div className="rounded-xl bg-[#07111F] border border-[#1E314B] p-5 shadow-xl space-y-4">
-                    {active.previewType === "chat" && (
-                      <div className="space-y-3 font-sans">
-                        <div className="flex items-center justify-between text-xs text-[#8E9EBA] border-b border-[#1E314B] pb-2">
-                          <span className="font-mono text-[#42D9F5]">Context Engine v2.4</span>
-                          <span className="text-emerald-400">Context Retained: 4 Turns</span>
-                        </div>
-                        <div className="bg-[#101F35] p-3 rounded-lg text-xs space-y-1">
-                          <span className="text-[#8E9EBA] text-[10px] block font-mono">Turn 1 (Prompt):</span>
-                          <p className="text-white">&ldquo;Show me Q3 revenue for Sharjah Hub.&rdquo;</p>
-                        </div>
-                        <div className="bg-[#0B1728] p-3 rounded-lg text-xs border border-[#1E314B] space-y-1">
-                          <span className="text-[#42D9F5] text-[10px] block font-mono">RaapNexus:</span>
-                          <p className="text-white font-medium">Sharjah Central Hub generated $482,100 in Q3 (+8.4% YoY).</p>
-                        </div>
-                        <div className="bg-[#101F35] p-3 rounded-lg text-xs space-y-1">
-                          <span className="text-[#8E9EBA] text-[10px] block font-mono">Turn 2 (Follow-up):</span>
-                          <p className="text-white">&ldquo;What was their best performing product category during that time?&rdquo;</p>
-                        </div>
-                        <div className="p-2.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-xs text-emerald-400 flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 shrink-0" />
-                          <span>Automatically resolved branch context &lsquo;Sharjah Central Hub&rsquo; without re-prompting.</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {active.previewType === "reporting" && (
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between border-b border-[#1E314B] pb-2 text-xs">
-                          <span className="font-bold text-white">Consolidated Report Generator</span>
-                          <span className="font-mono text-[#34D399] text-[11px]">.xlsx Compatible</span>
-                        </div>
-                        <div className="grid grid-cols-3 gap-2 text-xs">
-                          <div className="bg-[#101F35] p-2 rounded text-center">
-                            <span className="text-[10px] text-[#8E9EBA] block">Gross Margin</span>
-                            <span className="font-bold text-white">41.8%</span>
-                          </div>
-                          <div className="bg-[#101F35] p-2 rounded text-center">
-                            <span className="text-[10px] text-[#8E9EBA] block">EBITDA</span>
-                            <span className="font-bold text-emerald-400">$1.24M</span>
-                          </div>
-                          <div className="bg-[#101F35] p-2 rounded text-center">
-                            <span className="text-[10px] text-[#8E9EBA] block">Variance</span>
-                            <span className="font-bold text-[#42D9F5]">+6.2%</span>
-                          </div>
-                        </div>
-                        <div className="border border-[#1E314B] rounded-lg p-3 bg-[#0B1728] space-y-2 text-xs">
-                          <div className="flex justify-between text-[#8E9EBA] text-[10px] uppercase font-mono">
-                            <span>Reporting Period</span>
-                            <span>Auto-Calculated Formulae</span>
-                          </div>
-                          <div className="flex items-center justify-between text-white font-medium">
-                            <span>August Trial Balance Summary</span>
-                            <span className="text-emerald-400 font-mono">SUM(Debits) == SUM(Credits)</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {active.previewType === "mapping" && (
-                      <div className="space-y-3 font-mono text-xs">
-                        <div className="text-[11px] text-[#8E9EBA] border-b border-[#1E314B] pb-2 flex justify-between">
-                          <span>Contextual Entity Resolver</span>
-                          <span className="text-[#9B8CFF]">Confidence: 99.8%</span>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="bg-[#101F35] p-2.5 rounded border border-[#1E314B] flex items-center justify-between">
-                            <span className="text-white/80">&ldquo;Al Noor&rdquo;</span>
-                            <span className="text-[#9B8CFF]">➔ CUST-04921 (Al Noor Trading LLC)</span>
-                          </div>
-                          <div className="bg-[#101F35] p-2.5 rounded border border-[#1E314B] flex items-center justify-between">
-                            <span className="text-white/80">&ldquo;Dubai branch&rdquo;</span>
-                            <span className="text-[#9B8CFF]">➔ BR-DXB-01 (Downtown Retail)</span>
-                          </div>
-                          <div className="bg-[#101F35] p-2.5 rounded border border-[#1E314B] flex items-center justify-between">
-                            <span className="text-white/80">&ldquo;Server blades&rdquo;</span>
-                            <span className="text-[#9B8CFF]">➔ SKU-SRV-X8-BLD</span>
-                          </div>
-                        </div>
-                        <p className="text-[11px] text-[#8E9EBA] font-sans pt-1">
-                          Semantic matching eliminates user syntax errors and prevents invalid ERP ledger lookups.
-                        </p>
-                      </div>
-                    )}
-
-                    {active.previewType === "actions" && (
-                      <div className="space-y-3 text-xs">
-                        <div className="flex items-center justify-between border-b border-[#1E314B] pb-2">
-                          <span className="font-bold text-amber-400 flex items-center gap-1.5">
-                            <ShieldAlert className="w-3.5 h-3.5" />
-                            Staged Action Buffer
-                          </span>
-                          <span className="text-white/80 font-mono text-[10px]">Zero Direct DB Writes</span>
-                        </div>
-                        <div className="bg-[#101F35] p-3 rounded-lg border border-[#1E314B] space-y-2">
-                          <div className="flex justify-between font-bold text-white">
-                            <span>Commercial Invoice #DRAFT-9014</span>
-                            <span className="text-[#42D9F5]">$17,850.00</span>
-                          </div>
-                          <div className="text-[11px] text-[#8E9EBA]">
-                            Customer credit limit verified. 20 units reserved in DXB-Central warehouse.
-                          </div>
-                          <div className="flex items-center justify-between pt-1">
-                            <span className="text-[10px] text-amber-300 font-mono">
-                              Awaiting CFO Dual Control Signature
-                            </span>
-                            <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]">
-                              Pending
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {active.previewType === "integration" && (
-                      <div className="space-y-3 text-xs">
-                        <div className="flex items-center justify-between border-b border-[#1E314B] pb-2">
-                          <span className="font-mono text-[#42D9F5]">MCP Gateway Router</span>
-                          <span className="text-emerald-400 font-mono">Protocol v1.0 Validated</span>
-                        </div>
-                        <div className="space-y-1.5 font-mono text-[11px]">
-                          <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
-                            <span className="text-[#42D9F5]">CLIENT:</span> Claude / Cursor / ChatGPT
-                          </div>
-                          <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
-                            <span className="text-[#9B8CFF]">ROUTER:</span> RaapNexus Authorization Layer (Tenant: TN-8821)
-                          </div>
-                          <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
-                            <span className="text-emerald-400">BACKEND:</span> ERP Business Application Services
-                          </div>
-                        </div>
-                        <div className="p-2 rounded bg-[#101F35] text-[11px] text-[#8E9EBA]">
-                          All communications signed with per-user ephemeral cryptographic tokens.
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
+              <div className="pt-2 flex items-center gap-4">
+                <Link
+                  href="/platform"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#42D9F5] hover:text-white transition-colors"
+                >
+                  <span>Explore in Platform Architecture</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
-          );
-        })()}
+
+            {/* Interactive / Visual Preview for Active Capability */}
+            <div className="lg:col-span-6">
+              <div className="rounded-xl bg-[#07111F] border border-[#1E314B] p-4 sm:p-5 shadow-xl space-y-4">
+                {active.previewType === "chat" && (
+                  <div className="space-y-3 font-sans">
+                    <div className="flex items-center justify-between text-xs text-[#8E9EBA] border-b border-[#1E314B] pb-2">
+                      <span className="font-mono text-[#42D9F5]">Conversational Resolver</span>
+                      <span className="text-emerald-400 font-mono text-[11px]">Context Retained: 3 Turns</span>
+                    </div>
+                    <div className="bg-[#101F35] p-3 rounded-lg text-xs space-y-1">
+                      <span className="text-[#8E9EBA] text-[10px] block font-mono">User Prompt:</span>
+                      <p className="text-white">&ldquo;Show me Q3 revenue for Dubai branch and Al Noor invoices.&rdquo;</p>
+                    </div>
+                    <div className="space-y-1.5 font-mono text-[11px]">
+                      <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] flex items-center justify-between">
+                        <span className="text-white/80">&ldquo;Dubai branch&rdquo;</span>
+                        <span className="text-[#42D9F5]">➔ BR-DXB-01 (Downtown Retail)</span>
+                      </div>
+                      <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] flex items-center justify-between">
+                        <span className="text-white/80">&ldquo;Al Noor&rdquo;</span>
+                        <span className="text-[#9B8CFF]">➔ CUST-04921 (Al Noor Trading LLC)</span>
+                      </div>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-xs text-emerald-400 flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
+                      <span>Automatic disambiguation without requiring technical SQL queries.</span>
+                    </div>
+                  </div>
+                )}
+
+                {active.previewType === "reporting" && (
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between border-b border-[#1E314B] pb-2 text-xs">
+                      <span className="font-bold text-white">Consolidated Report Generator</span>
+                      <span className="font-mono text-[#34D399] text-[11px]">.xlsx Formula Ready</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div className="bg-[#101F35] p-2 rounded text-center">
+                        <span className="text-[10px] text-[#8E9EBA] block">Gross Margin</span>
+                        <span className="font-bold text-white">41.8%</span>
+                      </div>
+                      <div className="bg-[#101F35] p-2 rounded text-center">
+                        <span className="text-[10px] text-[#8E9EBA] block">EBITDA</span>
+                        <span className="font-bold text-emerald-400">$1.24M</span>
+                      </div>
+                      <div className="bg-[#101F35] p-2 rounded text-center">
+                        <span className="text-[10px] text-[#8E9EBA] block">Variance</span>
+                        <span className="font-bold text-[#42D9F5]">+6.2%</span>
+                      </div>
+                    </div>
+                    <div className="border border-[#1E314B] rounded-lg p-3 bg-[#0B1728] space-y-2 text-xs">
+                      <div className="flex justify-between text-[#8E9EBA] text-[10px] uppercase font-mono">
+                        <span>Period: August FY2026</span>
+                        <span className="text-emerald-400">Debits = Credits</span>
+                      </div>
+                      <div className="flex items-center justify-between text-white font-medium">
+                        <span>Consolidated General Ledger</span>
+                        <span className="text-[#34D399] font-mono">$4,982,450.00</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {active.previewType === "actions" && (
+                  <div className="space-y-3 text-xs">
+                    <div className="flex items-center justify-between border-b border-[#1E314B] pb-2">
+                      <span className="font-bold text-amber-400 flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        Staged Action Buffer
+                      </span>
+                      <span className="text-white/80 font-mono text-[10px]">Zero Direct DB Writes</span>
+                    </div>
+                    <div className="bg-[#101F35] p-3 rounded-lg border border-[#1E314B] space-y-2">
+                      <div className="flex justify-between font-bold text-white">
+                        <span>Commercial Invoice #DRAFT-9014</span>
+                        <span className="text-[#42D9F5]">$17,850.00</span>
+                      </div>
+                      <div className="text-[11px] text-[#8E9EBA]">
+                        Customer credit headroom ($39,650) and warehouse stock (142 units) pre-verified.
+                      </div>
+                      <div className="flex items-center justify-between pt-1">
+                        <span className="text-[10px] text-amber-300 font-mono">
+                          Awaiting Dual Control Sign-Off
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]">
+                          Pending Approval
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {active.previewType === "integration" && (
+                  <div className="space-y-3 text-xs">
+                    <div className="flex items-center justify-between border-b border-[#1E314B] pb-2">
+                      <span className="font-mono text-[#42D9F5]">MCP Gateway Router</span>
+                      <span className="text-emerald-400 font-mono text-[11px]">Protocol v1.0 Validated</span>
+                    </div>
+                    <div className="space-y-1.5 font-mono text-[11px]">
+                      <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
+                        <span className="text-[#42D9F5]">CLIENT:</span> Claude / Cursor / ChatGPT / Custom AI
+                      </div>
+                      <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
+                        <span className="text-[#9B8CFF]">LAYER:</span> RaapNexus Authorization & Tenant Boundary
+                      </div>
+                      <div className="bg-[#0B1728] p-2 rounded border border-[#1E314B] text-[#8E9EBA]">
+                        <span className="text-emerald-400">SYSTEM:</span> SAP / NetSuite / Dynamics 365 / SQL
+                      </div>
+                    </div>
+                    <div className="p-2 rounded bg-[#101F35] text-[11px] text-[#8E9EBA]">
+                      Strict role-based isolation. No training on enterprise tenant data.
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

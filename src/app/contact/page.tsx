@@ -109,11 +109,11 @@ export default function ContactPage() {
   };
 
   const interestOptions = [
-    "Conversational ERP Querying",
-    "Excel-Ready Financial Reporting",
-    "Controlled Invoicing & Action Workflows",
-    "Model Context Protocol (MCP) Integration",
-    "Multi-Entity & Tenant Consolidation",
+    "Tax Auditing & Tax Intelligence",
+    "Financial Auditing & Ledger Reconciliation",
+    "Financial Performance & Profitability Analysis",
+    "Business Analysis & Operational Telemetry",
+    "Multi-Entity Group Consolidation",
   ];
 
   const erpOptions = [
@@ -129,23 +129,23 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-28 pb-20 bg-[#07111F] min-h-screen text-white">
+    <div className="pt-28 pb-20 bg-[#05080E] min-h-screen text-[#FBF9F5]">
       {/* Header */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101F35] border border-[#1E314B] text-xs font-semibold uppercase tracking-wider text-[#42D9F5]">
-          <Calendar className="w-3.5 h-3.5" />
-          <span>Personalized Demonstration</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1726] border border-[#D4AF37]/30 text-xs font-semibold uppercase tracking-[0.2em] text-[#E5C378]">
+          <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
+          <span>Institutional Engagement</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto">
-          See RaapNexus in action with{" "}
-          <span className="gradient-text-cyan-violet block mt-1">
-            your enterprise workflows.
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
+          Schedule a financial advisory{" "}
+          <span className="gradient-text-gold block mt-1">
+            consultation.
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg text-[#8E9EBA] max-w-xl mx-auto">
-          Schedule a 30-minute tailored demonstration with an enterprise solutions architect.
+        <p className="text-base sm:text-lg text-[#C8CED8] max-w-xl mx-auto">
+          Discuss your enterprise audit workflows, tax intelligence requirements, and financial modeling with our senior partners.
         </p>
       </section>
 
@@ -376,22 +376,22 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#42D9F5] to-[#9B8CFF] text-[#07111F] font-bold text-sm shadow-xl shadow-[#42D9F5]/25 hover:shadow-[#42D9F5]/40 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E5C378] to-[#C5A880] text-[#05080E] font-bold text-sm shadow-xl shadow-[#D4AF37]/20 hover:shadow-[#D4AF37]/35 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
                         <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>Verifying & Registering Demo Request...</span>
+                        <span>Registering Consultation Request...</span>
                       </>
                     ) : (
                       <>
-                        <span>Submit Demo Request</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <span>Submit Consultation Request</span>
+                        <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                       </>
                     )}
                   </button>
-                  <p className="text-center text-[10px] text-[#8E9EBA] pt-2">
-                    Zero spam. Guaranteed response within one business day.
+                  <p className="text-center text-[10px] text-[#7E8B9E] pt-2">
+                    Confidential engagement. Guaranteed response within one business day.
                   </p>
                 </div>
               </form>

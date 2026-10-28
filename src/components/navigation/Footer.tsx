@@ -1,152 +1,121 @@
 import React from "react";
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { ShieldCheck, Cpu, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050C16] text-[#8E9EBA] border-t border-[#1E314B]/70 relative overflow-hidden">
+    <footer className="bg-[#05080E] text-[#7E8B9E] border-t border-[#D4AF37]/15 relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#42D9F5]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#9B8CFF]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#D4AF37]/[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#1E314B]/50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.06]">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo size="lg" variant="dark" />
-            <p className="text-sm text-[#8E9EBA] leading-relaxed max-w-sm pt-2">
-              Turn your business systems into intelligent conversations. Ask questions, uncover insights, generate reports, and prepare business actions through AI assistants — with enterprise control built in.
+            <Logo size="lg" variant="official" withTagline={true} />
+            <p className="text-xs sm:text-sm text-[#7E8B9E] leading-relaxed max-w-sm pt-2">
+              The Ultimate Finance Platform. Empowering modern enterprises with rigorous tax auditing, structured financial examination, performance modeling, and intelligent business analysis.
             </p>
-            <div className="flex items-center gap-2 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#101F35] border border-[#1E314B] text-xs text-white/90">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Enterprise Systems Ready</span>
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#101F35]/60 border border-[#1E314B] text-xs text-[#42D9F5]">
-                <Cpu className="w-3 h-3" />
-                <span>MCP Protocol</span>
+            <div className="pt-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0E1726] border border-[#D4AF37]/20 text-xs text-[#E5C378]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+                <span>Financial Clarity. Intelligent Decisions.</span>
               </span>
             </div>
           </div>
 
-          {/* Column: Platform */}
+          {/* Column: Core Pillars */}
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white">Platform</p>
-            <ul className="space-y-2 text-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#FBF9F5]">Service Pillars</p>
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/platform" className="hover:text-white transition-colors">
-                  Conversational Layer
+                <Link href="/solutions#tax-auditing" className="hover:text-[#E5C378] transition-colors">
+                  Tax Auditing & Intelligence
                 </Link>
               </li>
               <li>
-                <Link href="/platform#architecture" className="hover:text-white transition-colors">
-                  System Architecture
+                <Link href="/solutions#financial-auditing" className="hover:text-[#E5C378] transition-colors">
+                  Financial Auditing
                 </Link>
               </li>
               <li>
-                <Link href="/platform#mcp" className="hover:text-white transition-colors flex items-center gap-1">
-                  <span>MCP Integration</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#42D9F5]" />
+                <Link href="/solutions#financial-analysis" className="hover:text-[#E5C378] transition-colors">
+                  Financial Analysis
                 </Link>
               </li>
               <li>
-                <Link href="/platform#reporting" className="hover:text-white transition-colors">
-                  Excel-Ready Reporting
-                </Link>
-              </li>
-              <li>
-                <Link href="/platform#actions" className="hover:text-white transition-colors">
-                  Action Workflows
+                <Link href="/solutions#business-analysis" className="hover:text-[#E5C378] transition-colors">
+                  Business Analysis
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column: Solutions */}
+          {/* Column: Platform & Architecture */}
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white">Solutions</p>
-            <ul className="space-y-2 text-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#FBF9F5]">Platform</p>
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/solutions#finance" className="hover:text-white transition-colors">
-                  Finance & Accounting
+                <Link href="/platform" className="hover:text-[#E5C378] transition-colors">
+                  Platform Architecture
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#sales" className="hover:text-white transition-colors">
-                  Sales & Distribution
+                <Link href="/platform#reconciliation" className="hover:text-[#E5C378] transition-colors">
+                  Ledger Reconciliation
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#inventory" className="hover:text-white transition-colors">
-                  Inventory & Purchasing
+                <Link href="/security" className="hover:text-[#E5C378] transition-colors flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>Institutional Governance</span>
                 </Link>
               </li>
               <li>
-                <Link href="/solutions#enterprise" className="hover:text-white transition-colors">
-                  Enterprise Operations
-                </Link>
-              </li>
-              <li>
-                <Link href="/security" className="hover:text-white transition-colors flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-[#42D9F5]" />
-                  <span>Trust & Security</span>
+                <Link href="/about" className="hover:text-[#E5C378] transition-colors">
+                  About RaapNexus
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column: Company & Governance */}
+          {/* Column: Contact & Advisory */}
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white">Company</p>
-            <ul className="space-y-2 text-sm">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#FBF9F5]">Engagement</p>
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Book a Demo
+                <Link href="/contact" className="hover:text-[#E5C378] transition-colors flex items-center gap-1">
+                  <span>Schedule Consultation</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#D4AF37]" />
                 </Link>
               </li>
               <li>
-                <Link href="/security" className="hover:text-white transition-colors">
-                  Security Architecture
-                </Link>
+                <a href="mailto:advisory@raapnexus.com" className="hover:text-[#E5C378] transition-colors">
+                  advisory@raapnexus.com
+                </a>
               </li>
-              <li>
-                <Link href="/privacy" className="hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact#support" className="hover:text-white transition-colors">
-                  Support & Inquiries
-                </Link>
+              <li className="text-xs text-[#7E8B9E] pt-2">
+                Available for enterprise CFO, Audit & Tax Advisory engagements.
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8E9EBA]/70 gap-4">
-          <p>© {currentYear} RaapNexus. All rights reserved. Enterprise AI software for modern business systems.</p>
-
+        {/* Bottom Strip */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7E8B9E]">
+          <p>© {currentYear} RaapNexus. All rights reserved. The Ultimate Finance Platform.</p>
           <div className="flex items-center space-x-6">
-            <Link href="/privacy" className="hover:text-[#42D9F5] transition-colors">
-              Privacy
+            <Link href="/privacy" className="hover:text-[#FBF9F5] transition-colors">
+              Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-[#42D9F5] transition-colors">
-              Terms
+            <Link href="/terms" className="hover:text-[#FBF9F5] transition-colors">
+              Terms of Governance
             </Link>
-            <Link href="/security" className="hover:text-[#42D9F5] transition-colors">
-              Security
-            </Link>
-            <Link href="/contact" className="hover:text-[#42D9F5] transition-colors">
-              Schedule Tour
+            <Link href="/security" className="hover:text-[#FBF9F5] transition-colors">
+              Security Protocol
             </Link>
           </div>
         </div>

@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Enterprise Trust & Security Architecture — RaapNexus",
+  title: "Institutional Trust & Security Architecture — The Ultimate Finance Platform",
   description:
     "Comprehensive security whitepaper explaining zero-direct-database-write architecture, multi-tenant isolation, RBAC validation, and cryptographic auditability.",
 };

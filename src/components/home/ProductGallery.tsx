@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { GALLERY_ITEMS, GalleryItem } from "@/data/mockData";
 import {
   Maximize2,
@@ -25,9 +26,20 @@ import {
   Lock,
 } from "lucide-react";
 
-export const ProductGallery: React.FC = () => {
+interface ProductGalleryProps {
+  featuredOnly?: boolean;
+}
+
+export const ProductGallery: React.FC<ProductGalleryProps> = ({ featuredOnly = false }) => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const featuredIds = [
+    "executive-dashboard",
+    "financial-trial-balance",
+    "inventory-stock-analysis",
+    "invoice-creation-approval",
+  ];
 
   const categories = [
     "All",
@@ -40,12 +52,13 @@ export const ProductGallery: React.FC = () => {
     "Security & Governance",
   ];
 
-  const filteredItems =
-    activeCategory === "All"
-      ? GALLERY_ITEMS
-      : GALLERY_ITEMS.filter((item) =>
-          item.category.toLowerCase().includes(activeCategory.toLowerCase())
-        );
+  const itemsToDisplay = featuredOnly
+    ? GALLERY_ITEMS.filter((item) => featuredIds.includes(item.id))
+    : activeCategory === "All"
+    ? GALLERY_ITEMS
+    : GALLERY_ITEMS.filter((item) =>
+        item.category.toLowerCase().includes(activeCategory.toLowerCase())
+      );
 
   // Renders the specific high-fidelity HTML/CSS interface for each mockup
   const renderMockupContent = (itemId: string, isModal = false) => {
@@ -323,7 +336,7 @@ export const ProductGallery: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101F35] border border-[#1E314B] text-xs font-semibold uppercase tracking-wider text-[#42D9F5]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Software Gallery</span>
@@ -333,31 +346,41 @@ export const ProductGallery: React.FC = () => {
             See your business in a whole new light.
           </h2>
 
-          <p className="text-sm sm:text-lg text-[#8E9EBA]">
-            Explore 9 realistic product interfaces built specifically for executive clarity, granular operational analysis, and auditable enterprise workflows.
+          <p className="text-sm sm:text-base text-[#8E9EBA]">
+            {featuredOnly
+              ? "Explore four featured enterprise interfaces designed for executive clarity, granular operational analysis, and auditable workflows."
+              : "Explore 9 realistic product interfaces built specifically for executive clarity, granular operational analysis, and auditable enterprise workflows."}
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
-                activeCategory === cat
-                  ? "bg-[#42D9F5] text-[#07111F] font-bold shadow-md shadow-[#42D9F5]/20"
-                  : "bg-[#0B1728] text-[#8E9EBA] border border-[#1E314B] hover:text-white hover:border-white/30"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        {/* Category Filter Pills (Shown only on full gallery view) */}
+        {!featuredOnly && (
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium transition-all ${
+                  activeCategory === cat
+                    ? "bg-[#42D9F5] text-[#07111F] font-bold shadow-md shadow-[#42D9F5]/20"
+                    : "bg-[#0B1728] text-[#8E9EBA] border border-[#1E314B] hover:text-white hover:border-white/30"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
 
-        {/* 9 Product UI Preview Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {filteredItems.map((item) => (
+        {/* Product UI Preview Grid */}
+        <div
+          className={`grid gap-5 sm:gap-6 ${
+            featuredOnly
+              ? "grid-cols-1 md:grid-cols-2"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
+          {itemsToDisplay.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
@@ -415,6 +438,27 @@ export const ProductGallery: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Explore all modules on Platform banner */}
+        {featuredOnly && (
+          <div className="mt-10 p-5 rounded-2xl bg-[#0B1728] border border-[#1E314B] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+              <h4 className="text-sm sm:text-base font-bold text-white">
+                Looking for more specialized ERP modules?
+              </h4>
+              <p className="text-xs text-[#8E9EBA] mt-0.5">
+                Explore all 9 enterprise modules including Multi-Entity Consolidation, Cash Flow Telemetry, and Custom Security Policies.
+              </p>
+            </div>
+            <Link
+              href="/platform#gallery"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#101F35] hover:bg-[#152844] text-[#42D9F5] border border-[#1E314B] hover:border-[#42D9F5]/40 text-xs font-bold transition-all shrink-0"
+            >
+              <span>Explore all 9 enterprise modules on Platform</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        )}
 
         {/* Accessible Modal / Lightbox for Full Inspection */}
         {selectedItem && (

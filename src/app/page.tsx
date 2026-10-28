@@ -1,54 +1,30 @@
 import React from "react";
 import { Hero } from "@/components/home/Hero";
-import { CompatibilityStrip } from "@/components/home/CompatibilityStrip";
-import { ProblemTransformation } from "@/components/home/ProblemTransformation";
-import { InteractiveAIDemo } from "@/components/home/InteractiveAIDemo";
-import { CoreCapabilities } from "@/components/home/CoreCapabilities";
-import { ProductGallery } from "@/components/home/ProductGallery";
-import { HowItWorks } from "@/components/home/HowItWorks";
-import { EnterpriseSecurity } from "@/components/home/EnterpriseSecurity";
-import { BusinessSolutions } from "@/components/home/BusinessSolutions";
-import { WhyRaapNexus } from "@/components/home/WhyRaapNexus";
-import { FAQSection } from "@/components/home/FAQSection";
+import { IntroAndEcosystem } from "@/components/home/IntroAndEcosystem";
+import { FinancialPillars } from "@/components/home/FinancialPillars";
+import { ProductShowcase } from "@/components/home/ProductShowcase";
+import { EmblemExperience } from "@/components/home/EmblemExperience";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col w-full">
-      {/* Section B: Cinematic Hero */}
+    <div className="flex flex-col w-full bg-[#05080E]">
+      {/* Section 1: Minimal, High-Impact First Screen */}
       <Hero />
 
-      {/* Section C: Compatibility Strip */}
-      <CompatibilityStrip />
+      {/* Section 2: Financial Platform Introduction & Ecosystem Compatibility */}
+      <IntroAndEcosystem />
 
-      {/* Section D: Problem & Transformation */}
-      <ProblemTransformation />
+      {/* Section 3: Four Core Financial Capabilities */}
+      <FinancialPillars />
 
-      {/* Section E: Interactive AI Demo */}
-      <InteractiveAIDemo />
+      {/* Section 4: High-Fidelity Product Showcase */}
+      <ProductShowcase />
 
-      {/* Section F: The Five Core Capabilities */}
-      <CoreCapabilities />
+      {/* Section 5: Emblem Experience & Institutional Integrity */}
+      <EmblemExperience />
 
-      {/* Section G: Premium Product Gallery (9 Screens) */}
-      <ProductGallery />
-
-      {/* Section H: How It Works */}
-      <HowItWorks />
-
-      {/* Section I: Enterprise Security Architecture */}
-      <EnterpriseSecurity />
-
-      {/* Section J: Business Solutions */}
-      <BusinessSolutions />
-
-      {/* Section K: Why RaapNexus */}
-      <WhyRaapNexus />
-
-      {/* Section L: Frequently Asked Questions */}
-      <FAQSection />
-
-      {/* Section M: Final Conversion */}
+      {/* Section 6: Final Call to Action */}
       <FinalCTA />
     </div>
   );

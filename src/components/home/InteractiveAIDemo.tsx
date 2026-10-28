@@ -29,8 +29,13 @@ import {
 } from "lucide-react";
 
 export const InteractiveAIDemo: React.FC = () => {
+  // Homepage displays the 3 core enterprise prompts
+  const activePrompts = INTERACTIVE_PROMPTS.filter((p) =>
+    ["branch-sales", "trial-balance", "prepare-invoice"].includes(p.id)
+  );
+
   const [selectedPrompt, setSelectedPrompt] = useState<InteractivePrompt>(
-    INTERACTIVE_PROMPTS[0]
+    activePrompts[0] || INTERACTIVE_PROMPTS[0]
   );
   const [isThinking, setIsThinking] = useState(false);
   const [thinkingStep, setThinkingStep] = useState(0);
@@ -93,8 +98,8 @@ export const InteractiveAIDemo: React.FC = () => {
         </div>
 
         {/* Prompt Selector Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-          {INTERACTIVE_PROMPTS.map((prompt) => {
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-8">
+          {activePrompts.map((prompt) => {
             const isSelected = selectedPrompt.id === prompt.id;
             return (
               <button
