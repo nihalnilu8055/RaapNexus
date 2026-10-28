@@ -13,46 +13,49 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Platform", href: "/platform" },
-    { name: "Solutions", href: "/solutions" },
+    { name: "Solutions", href: "/#solutions" },
+    { name: "Insights", href: "/#showcase" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)] py-3"
-          : "bg-white/70 backdrop-blur-sm border-b border-slate-100 py-4 sm:py-5"
+          ? "bg-white/92 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.04)] py-3 sm:py-3.5"
+          : "bg-white/70 backdrop-blur-sm border-b border-slate-200/40 py-4 sm:py-5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Full-Width Expansive Container with 4-6% Horizontal Padding */}
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex items-center justify-between">
-          {/* Logo on Left */}
+          {/* Logo on Left - Correctly Proportioned & Clearly Visible */}
           <div className="flex items-center shrink-0">
-            <Logo size="header" variant="official" />
+            <Link href="/" className="inline-block" aria-label="RaapNexus Home">
+              <Logo size="header" variant="official" />
+            </Link>
           </div>
 
-          {/* Desktop Navigation - Minimal Center Menu */}
-          <nav className="hidden md:flex items-center space-x-7">
+          {/* Minimal Navigation: Solutions, Insights, About, Contact */}
+          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-sm font-medium tracking-tight transition-colors ${
                     isActive
-                      ? "text-slate-900 font-semibold"
-                      : "text-slate-600 hover:text-slate-900"
+                      ? "text-slate-950 font-semibold"
+                      : "text-slate-600 hover:text-slate-950"
                   }`}
                 >
                   {link.name}
@@ -61,24 +64,24 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Single Subtle CTA */}
-          <div className="hidden md:flex items-center space-x-3 shrink-0">
+          {/* Right Strong, Elegant “Book a Consultation” Button */}
+          <div className="hidden md:flex items-center space-x-4 shrink-0">
             <Link
-              href="/platform"
-              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-sm hover:shadow transition-all duration-200"
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs lg:text-sm font-semibold bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-[0_2px_10px_rgba(15,23,42,0.12)] hover:shadow-[0_4px_16px_rgba(15,23,42,0.18)] transition-all duration-200 group"
             >
-              <span>Explore Platform</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
+              <span>Book a Consultation</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.2] transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          {/* Mobile Right Controls */}
+          {/* Mobile Navigation Controls */}
           <div className="flex md:hidden items-center space-x-2 shrink-0">
             <Link
-              href="/platform"
-              className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#0F172A] text-white"
+              href="/contact"
+              className="hidden sm:inline-block text-xs font-semibold px-3 py-1.5 rounded-full bg-[#0F172A] text-white"
             >
-              Explore
+              Consult
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -93,7 +96,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/98 border-b border-slate-200 px-5 pt-3 pb-6 space-y-3 shadow-lg backdrop-blur-xl">
+        <div className="md:hidden bg-white/98 border-b border-slate-200 px-5 pt-3 pb-6 space-y-3 shadow-xl backdrop-blur-xl">
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -105,7 +108,7 @@ export const Navbar: React.FC = () => {
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isActive
                       ? "text-[#0284C7] bg-slate-50 font-semibold"
-                      : "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
                   }`}
                 >
                   {link.name}
@@ -120,7 +123,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full bg-[#0F172A] text-white font-semibold text-xs transition-colors"
             >
-              <span>Schedule Consultation</span>
+              <span>Book a Consultation</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[2.2]" />
             </Link>
           </div>

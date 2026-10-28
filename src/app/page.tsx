@@ -1,26 +1,26 @@
 import React from "react";
 import { Hero } from "@/components/home/Hero";
-import { FinanceIntro } from "@/components/home/FinanceIntro";
 import { FinancialPillars } from "@/components/home/FinancialPillars";
 import { ProductShowcase } from "@/components/home/ProductShowcase";
+import { WhyRaapNexus } from "@/components/home/WhyRaapNexus";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col w-full bg-white">
-      {/* Section 1: Minimal Hero */}
+      {/* 1. Dramatic, Editorial Full-Width Hero */}
       <Hero />
 
-      {/* Section 2: Finance Platform Introduction & Interactive Plain-Words Query Demonstration */}
-      <FinanceIntro />
-
-      {/* Section 3: The Four Core Financial Capabilities */}
+      {/* 2. Solutions: Four Elegant Offerings (Tax, Audit, Financial Analysis, Business Analysis) */}
       <FinancialPillars />
 
-      {/* Section 4: Product Showcase (Clean Minimal Browser Frame) */}
+      {/* 3. Interactive Showcase: Clean Financial Intelligence Interface with Working Tabs */}
       <ProductShowcase />
 
-      {/* Section 5: Final Call to Action */}
+      {/* 4. Why RaapNexus: Three Concise Value Propositions with Strong Typography */}
+      <WhyRaapNexus />
+
+      {/* 5. Final CTA: Bold, Full-Width Engagement Section */}
       <FinalCTA />
     </div>
   );

@@ -4,8 +4,10 @@
 
 :root {
   --bg: #FFFFFF;
+  --bg-warm: #FAFBFD;
   --bg-alt: #F8FAFC;
   --ink: #0F172A;
+  --ink-secondary: #334155;
   --muted: #475569;
   --faint: #64748B;
   --line: rgba(15, 23, 42, 0.08);
@@ -13,10 +15,11 @@
   --accent: #0284C7;
   --accent-light: #38BDF8;
   --accent-glow: rgba(2, 132, 199, 0.15);
-  --glass: rgba(255, 255, 255, 0.8);
+  --glass: rgba(255, 255, 255, 0.85);
   --glass-2: rgba(255, 255, 255, 0.95);
   --shadow-subtle: 0 20px 40px -15px rgba(15, 23, 42, 0.06);
   --shadow-elevated: 0 30px 60px -20px rgba(15, 23, 42, 0.1);
+  --shadow-luxury: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04);
 }
 
 @layer base {
@@ -28,11 +31,11 @@
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
   }
 }
 
-/* Minimal Gradient Utilities */
+/* Minimal & Editorial Gradient Utilities */
 .gradient-accent {
   background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
   -webkit-background-clip: text;
@@ -49,9 +52,58 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Subtle Financial Grid Texture */
+.bg-financial-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* Soft Accent Glow */
 .accent-glow {
   box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.25);
+}
+
+/* Floating Animations for Layered Dashboard Cards */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 8s ease-in-out infinite;
+}
+
+/* Animated SVG Chart Line */
+@keyframes drawChartLine {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawChartLine 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Minimal Window Frame (Dashboard Showcase) */
@@ -81,11 +133,11 @@
   background: rgba(15, 23, 42, 0.15);
 }
 
-/* Hero Entrance Compositor Animation */
+/* Hero Entrance Animation */
 @keyframes heroEntrance {
   0% {
-    opacity: 0.85;
-    transform: translateY(6px);
+    opacity: 0.96;
+    transform: translateY(4px);
   }
   100% {
     opacity: 1;
@@ -93,12 +145,12 @@
   }
 }
 
-.hero-animate-emblem,
 .hero-animate-badge,
 .hero-animate-headline,
 .hero-animate-subhead,
-.hero-animate-cta {
-  animation: heroEntrance 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+.hero-animate-cta,
+.hero-animate-visual {
+  opacity: 1;
 }
 
 /* Custom Minimal Scrollbar */
@@ -130,13 +182,17 @@
     transition-duration: 0.001s !important;
     scroll-behavior: auto !important;
   }
-  .hero-animate-emblem,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-chart-line,
   .hero-animate-badge,
   .hero-animate-headline,
   .hero-animate-subhead,
-  .hero-animate-cta {
+  .hero-animate-cta,
+  .hero-animate-visual {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+    stroke-dashoffset: 0 !important;
   }
 }
