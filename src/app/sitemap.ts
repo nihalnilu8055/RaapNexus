@@ -1,13 +1,14 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://raapnexus.com";
+  const baseUrl = "https://raap-nexus.vercel.app";
   const currentDate = new Date().toISOString();
 
   const routes = [
     "",
-    "/platform",
     "/solutions",
+    "/platform",
+    "/about",
     "/security",
     "/contact",
     "/privacy",
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: route === "" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : route === "/contact" ? 0.9 : 0.8,
+    priority: route === "" ? 1.0 : route === "/solutions" || route === "/contact" ? 0.9 : 0.8,
   }));
 }
+

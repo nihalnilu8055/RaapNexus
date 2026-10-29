@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://raapnexus.com/sitemap.xml",
+    sitemap: "https://raap-nexus.vercel.app/sitemap.xml",
   };
 }
+

@@ -1,7 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
+import { ScrollProgressAndBackToTop } from "@/components/ui/ScrollProgressAndBackToTop";
+import { InteractiveCursor } from "@/components/ui/InteractiveCursor";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-heading",
+  weight: ["500", "600", "700", "800"],
+  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -10,28 +29,32 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://raapnexus.com"),
+  metadataBase: new URL("https://raap-nexus.vercel.app"),
   title: {
-    default: "RaapNexus | The Ultimate Finance Platform",
+    default: "RaapNexus | The Ultimate Finance Platform — Tax Auditing & Financial Intelligence",
     template: "%s | RaapNexus",
   },
   description:
-    "RaapNexus is the ultimate financial platform focused on tax auditing, financial auditing, financial analysis, and business analysis.",
+    "Turn complex financial information into clearer insights with RaapNexus. Enterprise tax intelligence solutions, continuous financial auditing, multidimensional financial analysis, and business decision support.",
   keywords: [
-    "Financial Platform",
-    "Tax Auditing",
-    "Tax Intelligence",
-    "Financial Auditing",
-    "Financial Analysis",
-    "Business Analysis",
+    "Tax intelligence solutions",
+    "Tax auditing services",
+    "Financial auditing",
+    "Financial analysis services",
+    "Business financial analysis",
+    "Financial reporting and insights",
+    "Business decision support",
+    "General ledger reconciliation",
     "CFO Advisory",
-    "General Ledger Reconciliation",
-    "Enterprise Finance",
     "RaapNexus",
+    "The Ultimate Finance Platform",
   ],
   authors: [{ name: "RaapNexus" }],
   creator: "RaapNexus",
   publisher: "RaapNexus",
+  alternates: {
+    canonical: "https://raap-nexus.vercel.app",
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -40,14 +63,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://raapnexus.com",
+    url: "https://raap-nexus.vercel.app",
     siteName: "RaapNexus",
     title: "RaapNexus | The Ultimate Finance Platform",
     description:
-      "Financial Clarity. Intelligent Decisions. The financial platform focused on tax auditing, financial auditing, financial analysis, and business analysis.",
+      "Turn complex financial information into clearer insights with tax intelligence, financial auditing, and business analysis solutions designed to support confident decision-making.",
     images: [
       {
-        url: "https://raapnexus.com/images/raapnexus-logo.png",
+        url: "/images/raapnexus-logo.png",
         width: 1200,
         height: 630,
         alt: "RaapNexus — The Ultimate Finance Platform",
@@ -57,9 +80,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RaapNexus | The Ultimate Finance Platform",
-    description: "Financial Clarity. Intelligent Decisions.",
+    description:
+      "Turn complex financial information into clearer insights with tax intelligence, financial auditing, and business analysis solutions.",
     images: [
-      "https://raapnexus.com/images/raapnexus-logo.png",
+      "/images/raapnexus-logo.png",
     ],
   },
   icons: {
@@ -90,23 +114,23 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://raapnexus.com/#organization",
+        "@id": "https://raap-nexus.vercel.app/#organization",
         name: "RaapNexus",
-        url: "https://raapnexus.com",
+        url: "https://raap-nexus.vercel.app",
         logo: {
           "@type": "ImageObject",
-          url: "https://raapnexus.com/images/raapnexus-logo.png",
+          url: "https://raap-nexus.vercel.app/images/raapnexus-logo.png",
         },
         description:
-          "The Ultimate Finance Platform. Financial Clarity. Intelligent Decisions.",
+          "The Ultimate Finance Platform. Financial clarity, tax intelligence solutions, continuous financial auditing, and multidimensional business analysis.",
       },
       {
         "@type": "WebSite",
-        "@id": "https://raapnexus.com/#website",
-        url: "https://raapnexus.com",
+        "@id": "https://raap-nexus.vercel.app/#website",
+        url: "https://raap-nexus.vercel.app",
         name: "RaapNexus",
         publisher: {
-          "@id": "https://raapnexus.com/#organization",
+          "@id": "https://raap-nexus.vercel.app/#organization",
         },
       },
       {
@@ -121,26 +145,34 @@ export default function RootLayout({
           description: "Enterprise Financial Platform Consultation",
         },
         featureList: [
-          "Tax Auditing & Tax Intelligence",
-          "Financial Auditing & Discrepancy Detection",
-          "Financial Analysis & Multidimensional Modeling",
-          "Business Analysis & Operational Variance Tracking",
-          "Zero Direct Database Writes Architecture",
-          "Cryptographic Tenant & Entity Isolation",
+          "Tax intelligence solutions and VAT reconciliation",
+          "Continuous financial auditing and variance detection",
+          "Multidimensional financial analysis services",
+          "Operational business financial analysis",
+          "Zero direct database writes architecture",
+          "Cryptographic tenant and entity isolation",
         ],
       },
     ],
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${manrope.variable} ${inter.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen w-full overflow-x-hidden bg-white text-[#0F172A] antialiased selection:bg-[#0284C7]/15 selection:text-[#0284C7]">
+      <body className="min-h-screen w-full overflow-x-hidden bg-white text-[#0F172A] font-body antialiased selection:bg-[#0284C7]/15 selection:text-[#0284C7]">
+        <InteractiveCursor />
+        <ScrollProgressAndBackToTop />
         <Navbar />
         <main className="min-h-screen flex flex-col w-full overflow-x-hidden">{children}</main>
         <Footer />

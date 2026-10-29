@@ -20,9 +20,9 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: "Solutions", href: "/#solutions" },
-    { name: "Insights", href: "/#showcase" },
-    { name: "About", href: "/about" },
+    { name: "ERP Modules", href: "/#modules" },
+    { name: "Showcase", href: "/#erp-showcase" },
+    { name: "Platform", href: "/platform" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -30,8 +30,8 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
         isScrolled
-          ? "bg-white/92 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.04)] py-3 sm:py-3.5"
-          : "bg-white/70 backdrop-blur-sm border-b border-slate-200/40 py-4 sm:py-5"
+          ? "bg-white/92 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.04)] py-2.5 sm:py-3"
+          : "bg-white/75 backdrop-blur-sm border-b border-slate-200/40 py-3 sm:py-3.5"
       }`}
     >
       {/* Full-Width Expansive Container with 4-6% Horizontal Padding */}
@@ -45,14 +45,14 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Minimal Navigation: Solutions, Insights, About, Contact */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-10">
+          <nav className="hidden md:flex items-center space-x-7 lg:space-x-9">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-medium tracking-tight transition-colors ${
+                  className={`text-sm font-body font-medium tracking-normal transition-colors ${
                     isActive
                       ? "text-slate-950 font-semibold"
                       : "text-slate-600 hover:text-slate-950"
@@ -64,24 +64,24 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Strong, Elegant “Book a Consultation” Button */}
+          {/* Right Strong, Elegant “Explore ERP” Button */}
           <div className="hidden md:flex items-center space-x-4 shrink-0">
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs lg:text-sm font-semibold bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-[0_2px_10px_rgba(15,23,42,0.12)] hover:shadow-[0_4px_16px_rgba(15,23,42,0.18)] transition-all duration-200 group"
+              href="/erp-demo"
+              className="inline-flex items-center gap-2 px-4.5 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs lg:text-sm font-body font-semibold bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-[0_2px_10px_rgba(15,23,42,0.12)] hover:shadow-[0_4px_16px_rgba(15,23,42,0.18)] active:scale-[0.98] transition-all duration-200 group"
             >
-              <span>Book a Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[2.2] transition-transform duration-200 group-hover:translate-x-0.5" />
+              <span>Explore ERP</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.2] transition-transform duration-200 group-hover:translate-x-0.5 text-sky-400" />
             </Link>
           </div>
 
           {/* Mobile Navigation Controls */}
           <div className="flex md:hidden items-center space-x-2 shrink-0">
             <Link
-              href="/contact"
+              href="/erp-demo"
               className="hidden sm:inline-block text-xs font-semibold px-3 py-1.5 rounded-full bg-[#0F172A] text-white"
             >
-              Consult
+              Explore ERP
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
